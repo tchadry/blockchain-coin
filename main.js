@@ -14,6 +14,28 @@ class Block {
 		return SHA256(this.index + this.timestamp + this.previousHash + JSON.stringify(this.data)).toString()
 	}
 
+}
+
+
+class Blockchain {
+
+	constructor() {
+		this.chain = [this.createGenesisBlock]
+	}
+
+	createGenesisBlock() {
+		return new Block(0, "25/08/2017", "Genesis Block", "")
+	}
+
+	getLatestBlock() {
+		return this.chain[this.chain.length - 1]
+	}
+
+	addBlock(newBlock) {
+		newBlock.previousHash = this.getLatestBlock().hash
+		newBlock.hash = newBlock.calculateHash
+		this.chain.push(newBlock)
+	}
 
 
 }
