@@ -1,1 +1,1 @@
-Basic blockchain in Javascript
+Basic blockchain in Javascript using SHA256 hashing
